@@ -9,13 +9,14 @@ export class Aimbot {
     const closestEnemyPlayer = (levelName == "mp_rr_canyonlands_staging") ? this.createDummyPLayer() : this.findClosestEnemyPlayer(localPlayer, players);
     if (closestEnemyPlayer == null) return;
     const enemyDistance = this.calcDistance(localPlayer, closestEnemyPlayer);
+    
     let maxAngleDeltaRange;
     let smoothingDivisor;
-    if (enemyDistance <= 200 && event.altKey) {//200-400 is pretty much only close range
+    if (enemyDistance <= 200 && KeyboardEvent.altKey) {//200-400 is pretty much only close range
       maxAngleDeltaRange = 50;
       smoothingDivisor = 1;
     }
-    else if (enemyDistance <= 400 && event.altKey) {
+    else if (enemyDistance <= 400 && KeyboardEvent.altKey) {
       maxAngleDeltaRange = 20;
       smoothingDivisor = 4;
     }
