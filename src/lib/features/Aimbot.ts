@@ -12,13 +12,13 @@ export class Aimbot {
     
     let maxAngleDeltaRange;
     let smoothingDivisor;
-    if (enemyDistance <= 200 && KeyboardEvent.altKey) {//200-400 is pretty much only close range
+    if (enemyDistance <= 200) {//200-400 is pretty much only close range
       maxAngleDeltaRange = 50;
-      smoothingDivisor = 1;
+      smoothingDivisor = 10;
     }
-    else if (enemyDistance <= 400 && KeyboardEvent.altKey) {
-      maxAngleDeltaRange = 20;
-      smoothingDivisor = 4;
+    else if (enemyDistance <= 400) {
+      maxAngleDeltaRange = 10;
+      smoothingDivisor = 20;
     }
     else
       return; //no aimbot past 400
