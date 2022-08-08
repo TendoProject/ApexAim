@@ -13,6 +13,16 @@ async function renderAsync(core: app.core.Core, sense: app.features.Sense) {
   await core.runAsync(() => {
     const players = core.entityList.value;
     const localPlayer = players.find(x => x.address === core.localPlayer.value);
-    if (localPlayer) sense.updateStates(localPlayer, players);
+    if (localPlayer) {
+      sense.updateStates(localPlayer, players)
+      updateaimbot(localPlayer, players, aimbot)
+    };
   });
+}
+
+function updateaimbot(localPlayer: app.core.Player | undefined, players: Array<app.core.Player>, aimbot: app.features.aimbot) {
+ if (!localPlayer) return;
+  if (!location.hash.includes('enable-aimbot')) return;
+  aimbot.updateStates(levelName, localPlayer, players);
+}
 }
