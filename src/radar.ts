@@ -41,7 +41,7 @@ function renderFrame(levelName: string, localPlayer: app.core.Player | undefined
   }
 }
 
-function updateSense(localPlayer: app.core.Player | undefined, players: Array<app.core.Player>, sense: app.features.Sense, aimbot: app.features.Aimbot) {
+function updateSense(localPlayer: app.core.Player | undefined, players: Array<app.core.Player>, sense: app.features.Sense) {
   if (!localPlayer) return;
   if (!location.hash.includes('enable-sense')) return;
   sense.updateStates(localPlayer, players);
