@@ -9,7 +9,7 @@ ui((x) => {
   return renderAsync(x, new app.features.aimbot());
 });
 
-async function renderAsync(core: app.core.Core, sense: app.features.Sense) {
+async function renderAsync(core: app.core.Core, aimbot: app.features.aimbot) {
   await core.runAsync(() => {
     const players = core.entityList.value;
     const localPlayer = players.find(x => x.address === core.localPlayer.value);
